@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     height: 80,
     backgroundColor: COLORS.darkGreen,
     justifyContent: 'center',
-    padding: 10,
+    padding: 16,
   },
   logo: {
     width: 105,
