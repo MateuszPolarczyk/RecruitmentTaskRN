@@ -1,7 +1,7 @@
 import {View, Image} from 'react-native';
 import {styles} from './Navbar.styled';
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <View style={styles.navbarContainer}>
       <Image
@@ -11,5 +11,3 @@ const Navbar = () => {
     </View>
   );
 };
-
-export default Navbar;
