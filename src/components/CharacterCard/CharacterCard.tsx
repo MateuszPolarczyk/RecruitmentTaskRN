@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Pressable, ImageBackground} from 'react-native';
 import {styles} from './CharacterCard.styled';
-import {Button} from '../components/Button/Button';
+import { Button } from '../Button/Button';
 
 interface CharacterCardProps {
   id: number;

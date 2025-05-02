@@ -14,7 +14,7 @@ import SearchBar from '../../../../components/SearchBar/SearchBar';
 import {COLORS} from '../../../../theme/colors';
 import {FilterButton} from '../../../../components/Filter/FilterButton/FilterButton';
 import {FilterModal} from '../../../../components/Filter/Modal/Modal';
-import CharacterCard from '../../../../CharacterCard/CharacterCard';
+import CharacterCard from '../../../../components/CharacterCard/CharacterCard';
 import {useDebounce} from '../../../../hooks/useDebounce';
 import {fetchCharacters, Character} from '../../../../api/charactersApi';
 import {addFavorite, removeFavorite, getFavorites} from '../../../../utils/favoriteStorage';

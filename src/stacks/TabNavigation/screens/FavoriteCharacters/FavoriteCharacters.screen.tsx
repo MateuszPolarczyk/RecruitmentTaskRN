@@ -12,7 +12,7 @@ import SearchBar from '../../../../components/SearchBar/SearchBar';
 import {COLORS} from '../../../../theme/colors';
 import {FilterButton} from '../../../../components/Filter/FilterButton/FilterButton';
 import {FilterModal} from '../../../../components/Filter/Modal/Modal';
-import CharacterCard from '../../../../CharacterCard/CharacterCard';
+import CharacterCard from '../../../../components/CharacterCard/CharacterCard';
 import {useDebounce} from '../../../../hooks/useDebounce';
 import {getFavorites, removeFavorite} from '../../../../utils/favoriteStorage';
 import {Character} from '../../../../api/charactersApi';
