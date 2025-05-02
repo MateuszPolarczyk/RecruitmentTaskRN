@@ -11,17 +11,18 @@ interface ButtonProps {
   onPress?: () => void;
   title?: string;
   style?: ViewStyle | TextStyle;
+  isLiked?: boolean;
 }
 
-export const Button = ({type, onPress, title, style}: ButtonProps) => {
+export const Button = ({type, onPress, title, style, isLiked}: ButtonProps) => {
   const [isPressed, setIsPressed] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
+  const [isPressedLiked, setIsPressedLiked] = useState(false);
 
   const handlePressIn = () => setIsPressed(true);
   const handlePressOut = () => setIsPressed(false);
 
   const toggleLike = () => {
-    setIsLiked(prev => !prev);
+    setIsPressedLiked(prev => !prev);
     if (onPress) onPress();
   };
 

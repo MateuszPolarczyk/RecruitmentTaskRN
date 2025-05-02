@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Pressable, Text, View, ViewStyle, TextStyle} from 'react-native';
+import {Pressable, Text, ViewStyle, TextStyle} from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {styles} from './FilterButton.styled';
 import {COLORS} from '../../../theme/colors';

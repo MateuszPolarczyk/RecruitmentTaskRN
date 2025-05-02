@@ -5,44 +5,72 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.white,
-    paddingHorizontal: 16,
-    paddingTop: 16,
+    paddingHorizontal: 20
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 16,
+  },
+  retryButton: {
+    color: COLORS.darkGreen,
+    marginTop: 8,
   },
   headerContainer: {
-    marginBottom: 16,
-    gap: 16,
+    marginTop: 16,
+    marginBottom: 24,
   },
   title: {
     fontSize: 36,
-    color: COLORS.darkGreen,
     fontWeight: '500',
+    color: COLORS.darkGreen,
     letterSpacing: -1,
-    marginBottom: 16,
+  },
+  searchRow: {
+    gap: 16,
   },
   scrollContainer: {
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: 16,
+    gap: 12,
+    paddingBottom: 24,
   },
   characterCard: {
-    backgroundColor: COLORS.lightGreen,
+    backgroundColor: COLORS.white,
     borderRadius: 8,
     padding: 16,
-    marginBottom: 12,
   },
   characterName: {
     fontSize: 18,
-    fontWeight: '600',
-    color: COLORS.darkGreen,
-    marginBottom: 8,
+    fontWeight: 'bold',
   },
   characterDetails: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    marginTop: 8,
   },
   characterText: {
     fontSize: 14,
+  },
+  noResultsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 40,
+  },
+  noResultsText: {
+    fontSize: 16,
+    marginBottom: 16,
+  },
+  resetButton: {
     color: COLORS.darkGreen,
   },
 });
