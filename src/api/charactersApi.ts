@@ -30,24 +30,24 @@ export interface ApiResponse {
 }
 
 export const fetchCharacters = async (
-  params?: Record<string, string>
+  params?: Record<string, string>,
 ): Promise<ApiResponse> => {
   const queryString = params
     ? '?' +
       Object.entries(params)
         .map(
           ([key, value]) =>
-            `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+            `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
         )
         .join('&')
     : '';
 
   const response = await fetch(
-    `https://rickandmortyapi.com/api/character${queryString}`
+    `https://rickandmortyapi.com/api/character${queryString}`,
   );
 
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error('Network response error');
   }
 
   return response.json();
