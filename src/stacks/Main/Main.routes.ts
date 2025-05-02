@@ -11,9 +11,7 @@ export type MainStackParamList = {
 export type MainStackNavigationProp =
   NativeStackNavigationProp<MainStackParamList>;
 
-export const MainStackRoutes: {
-  [route in keyof MainStackParamList]: route;
-} = {
+export const MainStackRoutes = {
   TabNavigationStack: 'TabNavigationStack',
   CharacterDetailsStack: 'CharacterDetailsStack',
-};
+} as const;

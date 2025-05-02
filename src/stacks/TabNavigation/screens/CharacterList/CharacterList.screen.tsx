@@ -7,7 +7,6 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useQuery} from '@tanstack/react-query';
 import {styles} from './CharacterList.styled';
 import SearchBar from '../../../../components/SearchBar/SearchBar';
@@ -17,17 +16,17 @@ import {FilterModal} from '../../../../components/Filter/Modal/Modal';
 import CharacterCard from '../../../../components/CharacterCard/CharacterCard';
 import {useDebounce} from '../../../../hooks/useDebounce';
 import {fetchCharacters, Character} from '../../../../api/charactersApi';
-import {addFavorite, removeFavorite, getFavorites} from '../../../../utils/favoriteStorage';
+import {
+  addFavorite,
+  removeFavorite,
+  getFavorites,
+} from '../../../../utils/favoriteStorage';
+import {MainStackNavigationProp} from '../../../Main/Main.routes';
 
 type RootStackParamList = {
   CharacterDetails: {characterId: number};
   Favorites: undefined;
 };
-
-type CharacterListNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  'CharacterDetails'
->;
 
 export type FilterCategory = 'status' | 'species';
 
@@ -53,7 +52,7 @@ interface FilterState {
 }
 
 const CharacterListScreen = () => {
-  const {navigate} = useNavigation<CharacterListNavigationProp>();
+  const {navigate} = useNavigation<MainStackNavigationProp>();
   const isFocused = useIsFocused();
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -97,12 +96,11 @@ const CharacterListScreen = () => {
     queryFn: () => fetchCharacters(queryParams),
   });
 
-  // Load and maintain favorites status
   useEffect(() => {
     const updateFavoritesStatus = async () => {
       const favorites = await getFavorites();
       const newFavoritesMap: Record<number, boolean> = {};
-      
+
       favorites.forEach(fav => {
         newFavoritesMap[fav.id] = true;
       });
@@ -175,7 +173,7 @@ const CharacterListScreen = () => {
 
   const handleLikePress = async (character: Character) => {
     const isCurrentlyFavorite = favoritesMap[character.id] || false;
-    
+
     if (isCurrentlyFavorite) {
       await removeFavorite(character.id);
     } else {
@@ -244,7 +242,10 @@ const CharacterListScreen = () => {
                 status={character.status}
                 imageUrl={character.image}
                 onPress={() =>
-                  navigate('CharacterDetails', {characterId: character.id})
+                  navigate('CharacterDetailsStack', {
+                    screen: 'CharacterDetailsScreen',
+                    params: {characterId: character.id},
+                  })
                 }
                 isLiked={favoritesMap[character.id] || false}
                 onLikePress={() => handleLikePress(character)}
