@@ -3,7 +3,6 @@ import {
   View,
   Text,
   ScrollView,
-  TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
 import {useIsFocused} from '@react-navigation/native';
@@ -16,6 +15,8 @@ import CharacterCard from '../../../../components/CharacterCard/CharacterCard';
 import {useDebounce} from '../../../../hooks/useDebounce';
 import {getFavorites, removeFavorite} from '../../../../utils/favoriteStorage';
 import {Character} from '../../../../api/charactersApi';
+import {MainStackNavigationProp} from '../../../Main/Main.routes';
+import {useNavigation} from '@react-navigation/native';
 
 type FilterCategory = 'status' | 'species';
 
@@ -36,6 +37,7 @@ interface ActiveFilters {
 }
 
 const FavoritesCharactersScreen = () => {
+  const {navigate} = useNavigation<MainStackNavigationProp>();
   const isFocused = useIsFocused();
   const [favorites, setFavorites] = useState<Character[]>([]);
   const [filteredFavorites, setFilteredFavorites] = useState<Character[]>([]);
@@ -193,11 +195,6 @@ const FavoritesCharactersScreen = () => {
                   ? 'No favorite characters yet'
                   : 'No characters match your filters'}
               </Text>
-              {favorites.length > 0 && (
-                <TouchableOpacity onPress={resetFilters}>
-                  <Text style={styles.resetButton}>Reset filters</Text>
-                </TouchableOpacity>
-              )}
             </View>
           ) : (
             filteredFavorites.map(character => (
@@ -208,6 +205,12 @@ const FavoritesCharactersScreen = () => {
                 species={character.species}
                 status={character.status}
                 imageUrl={character.image}
+                onPress={() =>
+                  navigate('CharacterDetailsStack', {
+                    screen: 'CharacterDetailsScreen',
+                    params: {characterId: character.id},
+                  })
+                }
                 onLikePress={() => handleRemoveFavorite(character.id)}
                 isLiked={true}
               />

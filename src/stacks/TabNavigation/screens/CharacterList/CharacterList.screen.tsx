@@ -23,10 +23,6 @@ import {
 } from '../../../../utils/favoriteStorage';
 import {MainStackNavigationProp} from '../../../Main/Main.routes';
 
-type RootStackParamList = {
-  CharacterDetails: {characterId: number};
-  Favorites: undefined;
-};
 
 export type FilterCategory = 'status' | 'species';
 
