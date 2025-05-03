@@ -52,3 +52,15 @@ export const fetchCharacters = async (
 
   return response.json();
 };
+
+export const fetchCharacter = async (id: number): Promise<Character> => {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/${id}`,
+  );
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch character');
+  }
+
+  return response.json();
+};
