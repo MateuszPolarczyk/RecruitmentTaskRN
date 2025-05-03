@@ -72,12 +72,8 @@ const CharacterListScreen = () => {
 
   const queryParams = {
     ...(debouncedSearchQuery && {name: debouncedSearchQuery}),
-    ...(activeFilters.status.length > 0 && {
-      status: activeFilters.status.join(','),
-    }),
-    ...(activeFilters.species.length > 0 && {
-      species: activeFilters.species.join(','),
-    }),
+    ...(activeFilters.status.length > 0 && {status: activeFilters.status}),
+    ...(activeFilters.species.length > 0 && {species: activeFilters.species}),
   };
 
   const {

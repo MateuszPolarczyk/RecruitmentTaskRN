@@ -29,16 +29,26 @@ export interface ApiResponse {
   results: Character[];
 }
 
+const speciesMap: Record<string, string> = {
+  Human: 'Human',
+};
+
 export const fetchCharacters = async (
-  params?: Record<string, string>,
+  params?: Record<string, string | string[]>,
 ): Promise<ApiResponse> => {
+  if (params?.species) {
+    const species = Array.isArray(params.species) ? params.species : [params.species];
+    const mappedSpecies = species.map((s) => speciesMap[s] || s);
+    params.species = mappedSpecies.length === 1 ? mappedSpecies[0] : mappedSpecies;
+  }
+
   const queryString = params
     ? '?' +
       Object.entries(params)
-        .map(
-          ([key, value]) =>
-            `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
-        )
+        .map(([key, value]) => {
+          const valueStr = Array.isArray(value) ? value.join(',') : value;
+          return `${encodeURIComponent(key)}=${encodeURIComponent(valueStr)}`;
+        })
         .join('&')
     : '';
 
