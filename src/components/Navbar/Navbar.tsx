@@ -1,4 +1,5 @@
-import {View, Image} from 'react-native';
+import React from 'react';
+import {View, Image, Platform} from 'react-native';
 import {styles} from './Navbar.styled';
 
 export const Navbar = () => {
@@ -6,7 +7,7 @@ export const Navbar = () => {
     <View style={styles.navbarContainer}>
       <Image
         source={require('../../../assets/Rick_and_Morty_Logo.png')}
-        style={styles.logo}
+        style={[styles.logo, Platform.OS === 'ios' && {marginTop: 30}]}
       />
     </View>
   );

@@ -1,5 +1,4 @@
-import React from 'react';
-import {View} from 'react-native';
+import {Platform} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {CharacterListScreen} from './screens/CharacterList';
 import {FavoriteCharactersScreen} from './screens/FavoriteCharacters';
@@ -22,12 +21,13 @@ export const TabNavigationStack = () => {
             ? (iconName = 'person')
             : (iconName = 'star');
 
-          return <Ionicons name={iconName} size={17} color={COLORS.white} />;
+          return <Ionicons name={iconName} size={22} color={COLORS.white} />;
         },
         tabBarActiveBackgroundColor: COLORS.primaryGreen,
         tabBarInactiveBackgroundColor: COLORS.darkGreen,
         tabBarStyle: {
-          height: 70,
+          height: Platform.OS === 'ios' ? 80 : 70,
+          paddingBottom: Platform.OS === 'ios' ? 0 : 0,
         },
         tabBarLabelStyle: {
           color: COLORS.white,

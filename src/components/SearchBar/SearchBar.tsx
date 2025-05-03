@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  ViewStyle,
-} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { COLORS } from '../../theme/colors';
-import { styles } from './SearchBar.styled';
+import React, {useState} from 'react';
+import {View, TextInput, TouchableOpacity, ViewStyle} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
+import {COLORS} from '../../theme/colors';
+import {styles} from './SearchBar.styled';
 
 interface SearchBarProps {
   value: string;
@@ -16,7 +11,7 @@ interface SearchBarProps {
   style?: ViewStyle;
 }
 
-const SearchBar = ({ value, onChangeText, onCancel, style }: SearchBarProps) => {
+const SearchBar = ({value, onChangeText, onCancel, style}: SearchBarProps) => {
   const [focused, setFocused] = useState(false);
 
   const handleClear = () => {
@@ -43,7 +38,7 @@ const SearchBar = ({ value, onChangeText, onCancel, style }: SearchBarProps) => 
         onBlur={() => setFocused(false)}
         autoCapitalize="none"
         autoCorrect={false}
-        clearButtonMode="while-editing"
+        clearButtonMode="never"
         placeholderTextColor={COLORS.mediumGreen}
         cursorColor={COLORS.darkGreen}
       />
@@ -55,7 +50,7 @@ const SearchBar = ({ value, onChangeText, onCancel, style }: SearchBarProps) => 
             color={COLORS.darkGreen}
             style={[
               styles.icon,
-              { backgroundColor: COLORS.greyshGreen, borderRadius: 4 },
+              {backgroundColor: COLORS.greyshGreen, borderRadius: 4},
             ]}
           />
         </TouchableOpacity>
