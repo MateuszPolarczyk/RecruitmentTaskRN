@@ -39,4 +39,16 @@
 - **Server State Management**: For server state management, use **React Query**.
 - **Global State Management**: Use one of the following for global state: **React Context API** or **Jotai**.
 
+## How to run?
+```bash
+git clone https://github.com/MateuszPolarczyk/RecruitmentTaskRN.git
+cd RecruitmentTaskRN
+npm install
+npx expo start
+```
+
+1. Use Expo Go app and scan QR code from console **or**
+2. Run on Android emulator (press **a** in console ) **or**
+3. Run on iOS emulator (press **i** in console)
+
 ---
