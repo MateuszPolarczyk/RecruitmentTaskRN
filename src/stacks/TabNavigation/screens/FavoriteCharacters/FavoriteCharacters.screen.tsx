@@ -1,10 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  ScrollView,
-  ActivityIndicator,
-} from 'react-native';
+import {View, Text, ScrollView, ActivityIndicator} from 'react-native';
 import {useIsFocused} from '@react-navigation/native';
 import {styles} from './FavoriteCharacters.styled';
 import SearchBar from '../../../../components/SearchBar/SearchBar';

@@ -23,7 +23,6 @@ import {
 } from '../../../../utils/favoriteStorage';
 import {MainStackNavigationProp} from '../../../Main/Main.routes';
 
-
 export type FilterCategory = 'status' | 'species';
 
 interface FilterOption {
