@@ -1,10 +1,10 @@
-import { Platform, StyleSheet, StatusBar } from 'react-native';
-import { COLORS } from '../../theme/colors';
+import {Platform, StyleSheet, StatusBar} from 'react-native';
+import {COLORS} from '../../theme/colors';
 
 export const styles = StyleSheet.create({
   navbarContainer: {
     width: '100%',
-    height: Platform.OS === 'ios' ? 120 : 90,
+    height: Platform.OS === 'ios' ? 120 : 80,
     backgroundColor: COLORS.darkGreen,
     justifyContent: 'center',
     padding: 16,
